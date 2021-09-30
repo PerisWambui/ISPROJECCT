@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} Doctors {% endblock title %}
+
+{% block body %}
+    {% if doctors %}
+        <h1 class="bg-primary">Doctors available {{ selected_hospital.name }}</h1>
+        <div class="list-group" >
+            {% for doctor in doctors %}
+                <a href="" class="list-group-item list-group-item-action" aria-current="true">
+                <ul class="list-group list-group-flush">
+                 <p class="fw-bolder">{{ doctor.first_name }} </p>
+                  <p class="fw-bolder"> {{ doctor.last_name }}</p>
+                   <li class="list-group-item"> {{ doctor.phone_number }}</li>
+                    <li class="list-group-item">{{ doctor.hospital  }}</li>
+                    <li class="list-group-item">{{ doctor.specialization}}</li>
+                    </ul>
+                </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h2>No doctor in {{ selected_hospital.name }}</h2>
+    {% endif %}
+
+{% endblock body %}

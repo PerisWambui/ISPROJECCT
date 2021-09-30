@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock title %}
+
+{% block body %}
+<div class="container p-5 text-center"> 
+  <h1 class="bg-info">Welcome to Afya Bora!</h1>
+  <h4 class="text-muted">Find medical services near you!</h4>
+  <a href="{% url 'location' %}" class="btn btn-primary mt-5">Welcome Click here to start</a>
+</div>
+{% endblock body %}

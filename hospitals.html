@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Hospitals {% endblock title %}
+
+{% block body %}
+
+<div class="container pt-3 bg-info">
+    {% if hospitals %}
+        <h1>Hospitals in {{ selected_location.name }}</h1>
+
+        <div class="list-group">
+            {% for hospital in hospitals %}
+                <a href="{% url 'hospital' hospital.id %}" class="list-group-item list-group-item-action" aria-current="true">
+                    {{ hospital.name }}
+                </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h2>No hospitals in {{ selected_location.name }}</h2>
+    {% endif %}
+</div>
+{% endblock body %}

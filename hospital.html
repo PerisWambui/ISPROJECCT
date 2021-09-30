@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+ 
+{% block title %} Hospitals | {{ hospital.name }} {% endblock title %}
+
+{% block body %}
+
+<div class="container my-4" >
+  
+  <h3>{{ hospital.name }}</h3>
+  <p>{{ hospital.description }}</p>
+    
+  <h4>Our main services are:</h4>
+  <ul class="list-group list-group-flush">
+    {% for service in hospital.services.all %}
+      <li class="list-group-item bg-info">{{ service }}</li>
+    {% endfor %}
+  </ul>
+
+  <h4>Insurance offered:</h4>
+  <ul class="list-group list-group-flush">
+    {% for insurance in hospital.insurance_set.all %}
+      <li class="list-group-item">{{ insurance.name }}</li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'doctors' hospital.id %}" type="button" class="btn btn-primary">Check doctors availability here</a> 
+</div>
+<iframe src="https://www.google.com/maps/d/u/0/embed?mid=19pIGKlXdaf5vLMxssw5laCy-FzJdjoVF" width="640" height="480"></iframe>
+   <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Pb23194UJ36aSFCDFMjeD_t0ieRVPMmA" width="640" height="480"></iframe>
+
+{% endblock body %}
